@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/js/jquery-3.1.1.min.js"></script>
+		<script src="js/js/angular-1.4.6.min.js"></script>
+		<script src="js/js/angular-route.min.js"></script>
+		<script src="js/js/bootstrap.min.js"></script>
+		<script src="js/js/swiper.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/1.css"/>
+		<title>网易新闻</title>
+	</head>
+	<body ng-app="app1" ng-controller="ctl">
+		<div>
+			<div id="logo">
+			<li>
+				<img src="img/icon-personal-v2.png"/>
+			</li>
+		   <li>
+		   	<img src="img/logo_2017_v1.png" style="width: 100%;"/>
+		   </li>
+		   <li>
+		   <img src="img/download_2017.png"/>
+		   <img src="img/icon-email-v2.png"/>
+		   </li>
+		 </div>
+		<div id="top">
+			<li>体育</li>
+			<li>图片</li>
+			<li>财经</li>
+			<li>汽车</li>
+			<li>军事</li>
+			<li>直播</li>
+		   <li>呵呵</li>
+		</div>
+		<div class="swiper-container" id="wrap">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="img/img1.ph.126.jpg"/></div>
+					<div class="swiper-slide"><img src="img/img2.ph.126.jpg"/></div>
+					<div class="swiper-slide"><img src="img/img3.ph.126.jpg"/></div>
+				</div>
+				<div class="swiper-pagination"></div>
+		</div>
+		<div id="wrap_a">
+			<li ng-click="btn()">
+			  <img src="img/icon1.png"/>
+			  <p>美图</p>
+			</li>
+			<li ng-click="btn1()">
+			  <img src="img/icon2.png"/>
+			  <p>新闻</p>
+			</li>
+			<li ng-click="btn2()">
+			  <img src="img/icon3.png"/>
+			  <p>明星</p>
+			</li>
+			<li ng-click="btn3()">
+			  <img src="img/icon4.png"/>
+			  <p>体坛</p>
+			</li>
+			<li ng-click="btn4()">
+			  <img src="img/icon5.png"/>
+			  <p>热点</p>
+			</li>
+		</div>
+		</div>
+		
+		
+		
+		<ng-view></ng-view>
+	</body>
+	<script>
+		var app = angular.module("app1",["ngRoute"]);
+		app.controller("ctl",function($scope){
+			$scope.btn = function(){
+				location.href = "#/1"
+			}
+			$scope.btn1 = function(){
+				location.href = "#/2"
+			}
+			$scope.btn2 = function(){
+				location.href = "#/3"
+			}
+			$scope.btn3 = function(){
+				location.href = "#/4"
+			}
+			$scope.btn4 = function(){
+				location.href = "#/5"
+			}
+		})
+		app.config(function($routeProvider){
+			$routeProvider.when("/1",{
+				template:"hh"
+			}).when("/2",{
+				template:"aaah"
+			}).when("/3",{
+				template:"hh"
+			}).when("/4",{
+				template:"hh"
+			}).when("/5",{
+				template:"hh"
+			})
+		})
+		var  swiper = new Swiper("#wrap",{
+			autoplay:1000,
+			pagination:".swiper-pagination",
+			loop:true
+		})
+	</script>
+</html>
